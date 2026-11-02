@@ -831,8 +831,12 @@
             const labelKey = `sizelabel${n}`;
             const priceKey = `price${n}`;
             const label = rowObj[labelKey] || (n === 1 ? "Standard" : "");
-            const price =
-              rowObj[priceKey] !== "" ? parseFloat(rowObj[priceKey]) : 0;
+            // Strip ₦, commas, spaces so "4,500" or "₦4,500" parse as 4500
+            const cleaned = String(rowObj[priceKey] || "").replace(
+              /[^0-9.]/g,
+              "",
+            );
+            const price = cleaned !== "" ? parseFloat(cleaned) : 0;
             if (label) {
               portionOptions.push({ label, price: isNaN(price) ? 0 : price });
             }
@@ -840,7 +844,7 @@
 
           if (rowObj.name && portionOptions.length > 0) {
             data.push({
-              id: rowObj.id || i,
+              id: parseInt(rowObj.id, 10) || i,
               name: rowObj.name,
               category: rowObj.category || "RICE DISHES",
               description: rowObj.description || "",
