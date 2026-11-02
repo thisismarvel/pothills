@@ -1,0 +1,1181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pothills Foods Enterprises | Digital Menu</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                green: "#00873D",
+                darkgreen: "#006837",
+                red: "#E31B23",
+                lightgreen: "#E8F5E9",
+                gold: "#F59E0B",
+              },
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans pb-28 antialiased">
+    <!-- STICKY HEADER -->
+    <header
+      class="sticky top-0 z-30 bg-white shadow-sm border-b border-gray-100"
+    >
+      <!-- Top Info Banner -->
+      <div
+        class="bg-brand-darkgreen text-white text-[11px] py-1.5 px-4 text-center flex flex-wrap items-center justify-between gap-2"
+      >
+        <span class="truncate"
+          ><i class="fa-solid fa-location-dot text-brand-gold mr-1"></i> Shop
+          1-3, Arena Mall, Channels TV Rd, OPIC Estate, Isheri</span
+        >
+        <div class="flex items-center gap-3">
+          <span
+            ><i class="fa-solid fa-phone text-brand-gold mr-1"></i> 08062810013,
+            09095967192</span
+          >
+          <span class="hidden md:inline"
+            ><i class="fa-solid fa-envelope text-brand-gold mr-1"></i>
+            pothillsfoods@gmail.com</span
+          >
+        </div>
+      </div>
+
+      <!-- Main Header Bar -->
+      <div class="max-w-4xl mx-auto px-4 py-2.5">
+        <div class="flex items-center justify-between gap-3">
+          <!-- Brand Info & Logo -->
+          <div class="flex items-center gap-2.5 min-w-0">
+            <img
+              src="logo.png"
+              alt="Pothills Foods Logo"
+              class="h-11 w-11 object-contain rounded-full shadow-sm bg-white p-0.5 border border-gray-100 flex-shrink-0"
+              onerror="
+                this.src = 'https://via.placeholder.com/100?text=Pothills'
+              "
+            />
+            <div class="min-w-0">
+              <h1
+                class="text-base sm:text-lg font-extrabold text-brand-darkgreen leading-tight truncate uppercase tracking-tight"
+              >
+                Pothills Foods
+              </h1>
+              <p class="text-[11px] text-brand-red font-medium truncate">
+                Good Food, Happy Customers, Growing Together...
+              </p>
+            </div>
+          </div>
+
+          <!-- WhatsApp Quick Link -->
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <a
+              href="https://wa.me/2349095967192"
+              target="_blank"
+              class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs px-3 py-2 rounded-full font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+            >
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span class="hidden sm:inline">Order WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Compact Search Bar -->
+        <div class="mt-2.5 relative">
+          <i
+            class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"
+          ></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search menu items, frozen food, groceries, drinks..."
+            class="w-full bg-gray-100 text-xs text-gray-800 rounded-full pl-8 pr-8 py-2 border border-transparent focus:border-brand-green focus:bg-white focus:outline-none transition-all"
+          />
+          <button
+            id="clearSearch"
+            class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xs"
+          >
+            <i class="fa-solid fa-circle-xmark"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- STICKY HORIZONTAL CATEGORY NAVIGATION BAR -->
+    <nav
+      class="sticky top-[108px] z-20 bg-white border-b border-gray-200 shadow-xs"
+    >
+      <div class="max-w-4xl mx-auto px-4 py-2">
+        <div
+          id="categoryContainer"
+          class="flex gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1"
+        >
+          <!-- Dynamically Populated Categories -->
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="max-w-4xl mx-auto px-4 pt-4">
+      <!-- Storefront Showcase Banner -->
+      <div
+        class="bg-gradient-to-r from-brand-darkgreen to-emerald-800 text-white rounded-2xl mb-5 shadow-md overflow-hidden relative flex flex-col md:flex-row items-center"
+      >
+        <div class="p-5 md:w-1/2 z-10">
+          <span
+            class="inline-block bg-brand-red text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full mb-1"
+            >One Stop Food Hub</span
+          >
+          <h2 class="text-base sm:text-lg font-bold">
+            Quality Ingredients & Fresh Meals
+          </h2>
+          <p class="text-xs text-emerald-100 mt-1">
+            Visit our store at Arena Mall, Isheri or order online for prompt
+            delivery & pickup.
+          </p>
+        </div>
+        <div class="md:w-1/2 w-full h-40 md:h-44 relative">
+          <img
+            src="store.jpg"
+            alt="Pothills Storefront"
+            class="w-full h-full object-cover"
+            onerror="this.style.display = 'none'"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-brand-darkgreen/80 via-transparent to-transparent"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Loading State Spinner -->
+      <div
+        id="loadingSpinner"
+        class="flex flex-col items-center justify-center py-16 text-gray-500"
+      >
+        <div
+          class="w-10 h-10 border-4 border-brand-green border-t-transparent rounded-full animate-spin mb-3"
+        ></div>
+        <p class="text-xs font-medium">Loading catalog...</p>
+      </div>
+
+      <!-- Empty State -->
+      <div
+        id="emptyState"
+        class="hidden flex-col items-center justify-center py-16 text-center text-gray-500"
+      >
+        <i class="fa-solid fa-utensils text-4xl text-gray-300 mb-3"></i>
+        <h3 class="text-sm font-bold text-gray-700">No items found</h3>
+        <p class="text-xs text-gray-400 mt-1">
+          Try adjusting your search or category filter.
+        </p>
+      </div>
+
+      <!-- Menu Item Grid -->
+      <div id="menuGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Cards rendered dynamically via JS -->
+      </div>
+    </main>
+
+    <!-- FLOATING CART BOTTOM BAR -->
+    <div
+      id="floatingCartBar"
+      class="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 p-3 shadow-2xl transform translate-y-full transition-transform duration-300 ease-in-out"
+    >
+      <div class="max-w-4xl mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div
+            class="relative bg-brand-lightgreen text-brand-darkgreen w-11 h-11 rounded-full flex items-center justify-center"
+          >
+            <i class="fa-solid fa-basket-shopping text-base"></i>
+            <span
+              id="cartBadge"
+              class="absolute -top-1 -right-1 bg-brand-red text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white"
+              >0</span
+            >
+          </div>
+          <div>
+            <p class="text-[11px] text-gray-500 font-medium">Total Order</p>
+            <p
+              id="cartSubtotal"
+              class="text-base font-extrabold text-brand-darkgreen"
+            >
+              ₦0
+            </p>
+          </div>
+        </div>
+        <button
+          onclick="openCartModal()"
+          class="bg-brand-red hover:bg-red-700 text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl shadow-md flex items-center gap-2 transition-all"
+        >
+          <span>View Cart</span>
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- CART & CHECKOUT SLIDE-OVER MODAL -->
+    <div id="cartModal" class="fixed inset-0 z-50 hidden">
+      <!-- Backdrop -->
+      <div
+        onclick="closeCartModal()"
+        class="absolute inset-0 bg-black/60 backdrop-blur-xs"
+      ></div>
+
+      <!-- Slide Modal Panel -->
+      <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+        <div
+          class="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between"
+        >
+          <!-- Modal Header -->
+          <div
+            class="p-4 border-b border-gray-100 flex items-center justify-between bg-brand-darkgreen text-white"
+          >
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-bag-shopping text-brand-gold"></i>
+              <h3 class="font-bold text-sm uppercase tracking-wide">
+                Your Order Cart
+              </h3>
+            </div>
+            <button
+              onclick="closeCartModal()"
+              class="text-white/80 hover:text-white text-lg"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="p-4 overflow-y-auto flex-1 space-y-5">
+            <!-- Selected Items Container -->
+            <div>
+              <h4
+                class="text-xs font-bold uppercase text-gray-400 tracking-wider mb-2"
+              >
+                Order Items
+              </h4>
+              <div id="cartItemsList" class="space-y-3">
+                <!-- Dynamically generated cart rows -->
+              </div>
+            </div>
+
+            <hr class="border-gray-100" />
+
+            <!-- Order Details Form -->
+            <form id="checkoutForm" class="space-y-3">
+              <h4
+                class="text-xs font-bold uppercase text-gray-400 tracking-wider"
+              >
+                Fulfillment Details
+              </h4>
+
+              <div>
+                <label class="block text-xs font-medium text-gray-700 mb-1"
+                  >Full Name *</label
+                >
+                <input
+                  type="text"
+                  id="custName"
+                  required
+                  placeholder="e.g. Tunde Williams"
+                  class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:ring-1 focus:ring-brand-green focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-gray-700 mb-1"
+                  >Phone / WhatsApp Number *</label
+                >
+                <input
+                  type="tel"
+                  id="custPhone"
+                  required
+                  placeholder="e.g. 08012345678"
+                  class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:ring-1 focus:ring-brand-green focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-gray-700 mb-1"
+                  >Fulfillment Method *</label
+                >
+                <div class="grid grid-cols-2 gap-2">
+                  <label
+                    class="flex items-center justify-center p-2 border rounded-lg text-xs font-semibold cursor-pointer border-gray-300 text-gray-700 bg-gray-50 has-[:checked]:bg-brand-lightgreen has-[:checked]:border-brand-green has-[:checked]:text-brand-darkgreen"
+                  >
+                    <input
+                      type="radio"
+                      name="fulfillment"
+                      value="Delivery"
+                      checked
+                      onchange="toggleAddressField()"
+                      class="hidden"
+                    />
+                    <i class="fa-solid fa-motorcycle mr-1.5"></i> Home Delivery
+                  </label>
+                  <label
+                    class="flex items-center justify-center p-2 border rounded-lg text-xs font-semibold cursor-pointer border-gray-300 text-gray-700 bg-gray-50 has-[:checked]:bg-brand-lightgreen has-[:checked]:border-brand-green has-[:checked]:text-brand-darkgreen"
+                  >
+                    <input
+                      type="radio"
+                      name="fulfillment"
+                      value="Pick-up"
+                      onchange="toggleAddressField()"
+                      class="hidden"
+                    />
+                    <i class="fa-solid fa-store mr-1.5"></i> Self Pick-up
+                  </label>
+                </div>
+              </div>
+
+              <div id="addressContainer">
+                <label class="block text-xs font-medium text-gray-700 mb-1"
+                  >Delivery Address *</label
+                >
+                <textarea
+                  id="custAddress"
+                  rows="2"
+                  placeholder="Provide full address in Isheri / OPIC area..."
+                  class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:ring-1 focus:ring-brand-green focus:outline-none"
+                ></textarea>
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-gray-700 mb-1"
+                  >Special Instructions / Notes</label
+                >
+                <input
+                  type="text"
+                  id="custNotes"
+                  placeholder="e.g. Extra packaging, prompt delivery..."
+                  class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:ring-1 focus:ring-brand-green focus:outline-none"
+                />
+              </div>
+            </form>
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="p-4 border-t border-gray-100 bg-gray-50 space-y-3">
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-gray-500">Subtotal</span>
+              <span
+                id="modalSubtotal"
+                class="font-extrabold text-base text-gray-800"
+                >₦0</span
+              >
+            </div>
+
+            <button
+              onclick="submitOrderToWhatsApp()"
+              class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all"
+            >
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>Complete Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN JAVASCRIPT LOGIC -->
+    <script>
+      const GOOGLE_SHEET_CSV_URL =
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vR-QAjRX4tEra_jnRhusECl580WSr-cj_6G8f25O7L3dxIZi572o9XG6bfS4WtAQrR7xcOpdR6TLMP9/pub?gid=671616820&single=true&output=csv"; // REPLACE WITH YOUR PUBLIC GOOGLE SHEETS CSV URL
+      const WHATSAPP_NUMBER = "2349095967192";
+
+      // COMPREHENSIVE CATEGORIES ORDER
+      const CATEGORIES_ORDER = [
+        "All Items",
+        "RICE DISHES",
+        "SWALLOW & SOUPS",
+        "YAM & BEANS DISHES",
+        "PASTA & NOODLES",
+        "SANDWICHES & SNACKS",
+        "PROTEINS & SIDES",
+        "LOCAL FOOD STAPLES",
+        "FROZEN FOOD",
+        "COOKED MEALS",
+        "DAIRY & CHILLED",
+        "CHICKEN & TURKEY",
+        "LIGHT MEALS",
+        "GRAINS, RICE & STAPLES",
+        "FRESH PRODUCE",
+        "SNACKS",
+        "SEAFOOD",
+        "FOODSTUFF",
+        "COLD DRINKS",
+        "FROZEN READY-TO-COOK",
+      ];
+
+      // CATEGORY ICONS
+      const CATEGORY_ICONS = {
+        "All Items": "fa-border-all",
+        "RICE DISHES": "fa-bowl-rice",
+        "SWALLOW & SOUPS": "fa-bowl-food",
+        "YAM & BEANS DISHES": "fa-utensils",
+        "PASTA & NOODLES": "fa-wheat-awn",
+        "SANDWICHES & SNACKS": "fa-burger",
+        "PROTEINS & SIDES": "fa-drumstick-bite",
+        "LOCAL FOOD STAPLES": "fa-basket-shopping",
+        "FROZEN FOOD": "fa-snowflake",
+        "COOKED MEALS": "fa-plate-wheat",
+        "DAIRY & CHILLED": "fa-glass-water",
+        "CHICKEN & TURKEY": "fa-drumstick-bite",
+        "LIGHT MEALS": "fa-utensils",
+        "GRAINS, RICE & STAPLES": "fa-seedling",
+        "FRESH PRODUCE": "fa-apple-whole",
+        SNACKS: "fa-cookie",
+        SEAFOOD: "fa-fish",
+        FOODSTUFF: "fa-boxes-packing",
+        "COLD DRINKS": "fa-bottle-droplet",
+        "FROZEN READY-TO-COOK": "fa-box-open",
+      };
+
+      // MENU ITEMS WITH BLANK PRICING FOR NEW CATEGORIES
+      const FALLBACK_MENU_ITEMS = [
+        // Original items with preset prices
+        {
+          id: 1,
+          name: "White Rice & Assorted Pepper Soup",
+          category: "RICE DISHES",
+          description:
+            "White rice served with tasty assorted spicy pepper soup.",
+          portionOptions: [{ label: "Standard", price: 4500 }],
+        },
+        {
+          id: 2,
+          name: "White Rice & Ofada Sauce",
+          category: "RICE DISHES",
+          description: "White rice served with Ofada sauce and assorted beef.",
+          portionOptions: [{ label: "Standard", price: 4000 }],
+        },
+        {
+          id: 3,
+          name: "Fried Rice & Chicken",
+          category: "RICE DISHES",
+          description: "Delicious fried rice served with peppered chicken.",
+          portionOptions: [{ label: "Standard", price: 5000 }],
+        },
+        {
+          id: 4,
+          name: "Fried Rice & Peppered Assorted",
+          category: "RICE DISHES",
+          description:
+            "Tasty stir-fried rice mixed with colourful vegetables and assorted meat.",
+          portionOptions: [{ label: "Standard", price: 4000 }],
+        },
+        {
+          id: 5,
+          name: "Jollof Rice & Chicken",
+          category: "RICE DISHES",
+          description: "Delicious jollof rice served with peppered chicken.",
+          portionOptions: [{ label: "Standard", price: 5000 }],
+        },
+        {
+          id: 6,
+          name: "Jollof Rice & Beef",
+          category: "RICE DISHES",
+          description: "Tasty jollof rice served with beef.",
+          portionOptions: [{ label: "Standard", price: 4000 }],
+        },
+
+        {
+          id: 7,
+          name: "Efo Riro Soup",
+          category: "SWALLOW & SOUPS",
+          description:
+            "Any swallow of your choice served with delicious efo riro and beef.",
+          portionOptions: [{ label: "Standard", price: 3500 }],
+        },
+        {
+          id: 8,
+          name: "Egusi Soup",
+          category: "SWALLOW & SOUPS",
+          description:
+            "Any swallow of your choice served with delicious egusi soup and beef.",
+          portionOptions: [{ label: "Standard", price: 3500 }],
+        },
+        {
+          id: 9,
+          name: "Ewedu & Stew",
+          category: "SWALLOW & SOUPS",
+          description:
+            "Any swallow of your choice served with ewedu, stew and beef.",
+          portionOptions: [{ label: "Standard", price: 3000 }],
+        },
+
+        {
+          id: 10,
+          name: "Yam Porridge",
+          category: "YAM & BEANS DISHES",
+          description: "Delicious yam porridge with fish or assorted meat.",
+          portionOptions: [{ label: "Standard", price: 3500 }],
+        },
+        {
+          id: 11,
+          name: "Cooked Yam & Fish Sauce",
+          category: "YAM & BEANS DISHES",
+          description: "Soft-boiled yam served with tasty fish sauce.",
+          portionOptions: [{ label: "Standard", price: 3000 }],
+        },
+        {
+          id: 12,
+          name: "Fried Yam & Fish Sauce",
+          category: "YAM & BEANS DISHES",
+          description: "Crispy fried yam served with tasty fish sauce.",
+          portionOptions: [{ label: "Standard", price: 3000 }],
+        },
+        {
+          id: 13,
+          name: "Cooked Yam & Egg Sauce",
+          category: "YAM & BEANS DISHES",
+          description: "Soft-boiled yam served with delicious egg sauce.",
+          portionOptions: [{ label: "Standard", price: 3000 }],
+        },
+        {
+          id: 14,
+          name: "Beans & Fried Plantain",
+          category: "YAM & BEANS DISHES",
+          description: "Tasty beans served with fried ripe plantain.",
+          portionOptions: [{ label: "Standard", price: 3000 }],
+        },
+
+        {
+          id: 15,
+          name: "Indomie, Fried Egg & Turkey",
+          category: "PASTA & NOODLES",
+          description:
+            "Delicious stir-fried Indomie served with fried egg and big turkey.",
+          portionOptions: [{ label: "Standard", price: 7600 }],
+        },
+        {
+          id: 16,
+          name: "Jollof Spaghetti & Turkey",
+          category: "PASTA & NOODLES",
+          description: "Tasty jollof spaghetti served with big turkey.",
+          portionOptions: [{ label: "Standard", price: 6000 }],
+        },
+
+        {
+          id: 17,
+          name: "Hot Dog Sandwich",
+          category: "SANDWICHES & SNACKS",
+          description: "Delicious toasted hot dog sandwich.",
+          portionOptions: [{ label: "Standard", price: 2000 }],
+        },
+        {
+          id: 18,
+          name: "Toasted Sandwich",
+          category: "SANDWICHES & SNACKS",
+          description: "Tasty, freshly toasted sandwich.",
+          portionOptions: [{ label: "Standard", price: 1500 }],
+        },
+
+        {
+          id: 19,
+          name: "Peppered Beef",
+          category: "PROTEINS & SIDES",
+          description: "Deliciously seasoned peppered beef.",
+          portionOptions: [{ label: "Portion", price: 500 }],
+        },
+        {
+          id: 20,
+          name: "Ponmo",
+          category: "PROTEINS & SIDES",
+          description: "Tasty ponmo.",
+          portionOptions: [{ label: "Portion", price: 500 }],
+        },
+        {
+          id: 21,
+          name: "Peppered Croaker Fish",
+          category: "PROTEINS & SIDES",
+          description: "Croaker fish prepared in spicy pepper sauce.",
+          portionOptions: [{ label: "Portion", price: 2500 }],
+        },
+        {
+          id: 22,
+          name: "Peppered Chicken",
+          category: "PROTEINS & SIDES",
+          description: "Deliciously seasoned peppered chicken.",
+          portionOptions: [{ label: "Piece", price: 3000 }],
+        },
+        {
+          id: 23,
+          name: "Peppered Turkey",
+          category: "PROTEINS & SIDES",
+          description: "Deliciously seasoned peppered turkey.",
+          portionOptions: [{ label: "Piece", price: 5000 }],
+        },
+
+        {
+          id: 24,
+          name: "Garri Ijebu (1kg)",
+          category: "LOCAL FOOD STAPLES",
+          description: "A 1kg pack of quality Garri Ijebu.",
+          portionOptions: [{ label: "1kg", price: 1500 }],
+        },
+
+        // New categories with blank pricing (price set to 0 or null placeholder)
+        {
+          id: 25,
+          name: "Assorted Frozen Fish Selection",
+          category: "FROZEN FOOD",
+          description: "Freshly frozen premium fish varieties.",
+          portionOptions: [{ label: "1kg Pack", price: 0 }],
+        },
+        {
+          id: 26,
+          name: "Frozen Prawns & Seafood Mix",
+          category: "FROZEN FOOD",
+          description: "Cleaned and frozen seafood selection.",
+          portionOptions: [{ label: "Pack", price: 0 }],
+        },
+
+        {
+          id: 27,
+          name: "Special House Cooked Combo",
+          category: "COOKED MEALS",
+          description: "Chef special prepared daily meal.",
+          portionOptions: [{ label: "Standard", price: 0 }],
+        },
+
+        {
+          id: 28,
+          name: "Fresh Cow Milk & Yogurt",
+          category: "DAIRY & CHILLED",
+          description: "Chilled dairy refreshments and milk.",
+          portionOptions: [{ label: "Bottle", price: 0 }],
+        },
+
+        {
+          id: 29,
+          name: "Whole Chicken (Chilled/Fresh)",
+          category: "CHICKEN & TURKEY",
+          description: "Whole dressed broiler chicken.",
+          portionOptions: [{ label: "1 Bird", price: 0 }],
+        },
+        {
+          id: 30,
+          name: "Turkey Parts & Cuts",
+          category: "CHICKEN & TURKEY",
+          description: "Freshly packaged turkey cuts.",
+          portionOptions: [{ label: "1kg", price: 0 }],
+        },
+
+        {
+          id: 31,
+          name: "Quick Bites & Small Chops Combo",
+          category: "LIGHT MEALS",
+          description: "Assorted quick snacks and small chops.",
+          portionOptions: [{ label: "Pack", price: 0 }],
+        },
+
+        {
+          id: 32,
+          name: "Nigerian Rice (5kg / 10kg)",
+          category: "GRAINS, RICE & STAPLES",
+          description: "Clean sorted local and foreign rice grains.",
+          portionOptions: [{ label: "5kg", price: 0 }],
+        },
+        {
+          id: 33,
+          name: "Beans & Garri Staples",
+          category: "GRAINS, RICE & STAPLES",
+          description: "Oloyin beans, honey beans and garri sacks.",
+          portionOptions: [{ label: "Paint rubber", price: 0 }],
+        },
+
+        {
+          id: 34,
+          name: "Fresh Vegetables & Peppers Basket",
+          category: "FRESH PRODUCE",
+          description: "Fresh tomatoes, peppers, onions and greens.",
+          portionOptions: [{ label: "Basket", price: 0 }],
+        },
+
+        {
+          id: 35,
+          name: "Party Samosa & Spring Rolls",
+          category: "SNACKS",
+          description: "Crispy fried party snacks.",
+          portionOptions: [{ label: "Pack of 5", price: 0 }],
+        },
+
+        {
+          id: 36,
+          name: "Fresh Croaker & Titus Fish",
+          category: "SEAFOOD",
+          description: "Fresh catch seafood options.",
+          portionOptions: [{ label: "1 Piece", price: 0 }],
+        },
+
+        {
+          id: 37,
+          name: "Cooking Oil & Condiments",
+          category: "FOODSTUFF",
+          description: "Vegetable oil, palm oil and tomato pastes.",
+          portionOptions: [{ label: "Bottle/Pack", price: 0 }],
+        },
+
+        {
+          id: 38,
+          name: "Soft Drinks & Bottled Water",
+          category: "COLD DRINKS",
+          description: "Chilled Coca-Cola, Fanta, Sprite and water.",
+          portionOptions: [{ label: "Bottle", price: 0 }],
+        },
+
+        {
+          id: 39,
+          name: "Frozen Chicken Nuggets & Fries",
+          category: "FROZEN READY-TO-COOK",
+          description: "Ready to fry chicken nuggets and potato fries.",
+          portionOptions: [{ label: "Pack", price: 0 }],
+        },
+      ];
+
+      // STATE
+      let rawMenuItems = [];
+      let currentSelectedCategory = "All Items";
+      let cart = [];
+      const selectedCardPortions = {};
+
+      const formatNaira = (val) =>
+        val === 0 ? "Price TBD" : "₦" + Number(val).toLocaleString();
+
+      // CSV PARSER
+      function parseCSV(text) {
+        const lines = [];
+        let row = [];
+        let inQuotes = false;
+        let currentStr = "";
+
+        for (let i = 0; i < text.length; i++) {
+          const c = text[i];
+          const next = text[i + 1];
+
+          if (c === '"') {
+            if (inQuotes && next === '"') {
+              currentStr += '"';
+              i++;
+            } else {
+              inQuotes = !inQuotes;
+            }
+          } else if (c === "," && !inQuotes) {
+            row.push(currentStr.trim());
+            currentStr = "";
+          } else if ((c === "\r" || c === "\n") && !inQuotes) {
+            if (c === "\r" && next === "\n") {
+              i++;
+            }
+            row.push(currentStr.trim());
+            if (row.some((field) => field !== "")) lines.push(row);
+            row = [];
+            currentStr = "";
+          } else {
+            currentStr += c;
+          }
+        }
+        if (currentStr || row.length > 0) {
+          row.push(currentStr.trim());
+          lines.push(row);
+        }
+
+        if (lines.length < 2) return [];
+
+        const headers = lines[0].map((h) =>
+          h.toLowerCase().replace(/[^a-z0-9]/g, ""),
+        );
+        const data = [];
+
+        for (let i = 1; i < lines.length; i++) {
+          const values = lines[i];
+          const rowObj = {};
+          headers.forEach((h, idx) => {
+            rowObj[h] = values[idx] || "";
+          });
+
+          const portionOptions = [];
+          [1, 2, 3].forEach((n) => {
+            const labelKey = `sizelabel${n}`;
+            const priceKey = `price${n}`;
+            const label = rowObj[labelKey] || (n === 1 ? "Standard" : "");
+            const price =
+              rowObj[priceKey] !== "" ? parseFloat(rowObj[priceKey]) : 0;
+            if (label) {
+              portionOptions.push({ label, price: isNaN(price) ? 0 : price });
+            }
+          });
+
+          if (rowObj.name && portionOptions.length > 0) {
+            data.push({
+              id: rowObj.id || i,
+              name: rowObj.name,
+              category: rowObj.category || "RICE DISHES",
+              description: rowObj.description || "",
+              portionOptions: portionOptions,
+            });
+          }
+        }
+        return data;
+      }
+
+      async function fetchMenuItems() {
+        const spinner = document.getElementById("loadingSpinner");
+        try {
+          if (!GOOGLE_SHEET_CSV_URL)
+            throw new Error("No Google Sheets URL provided.");
+          const response = await fetch(GOOGLE_SHEET_CSV_URL);
+          const csvData = await response.text();
+          const parsed = parseCSV(csvData);
+          rawMenuItems = parsed.length > 0 ? parsed : FALLBACK_MENU_ITEMS;
+        } catch (err) {
+          console.warn("Using fallback menu items:", err.message);
+          rawMenuItems = FALLBACK_MENU_ITEMS;
+        } finally {
+          spinner.classList.add("hidden");
+          renderCategories();
+          renderMenuGrid();
+        }
+      }
+
+      function renderCategories() {
+        const container = document.getElementById("categoryContainer");
+        const dynamicCategories = [
+          ...new Set(rawMenuItems.map((i) => i.category)),
+        ];
+        const categoriesToDisplay = CATEGORIES_ORDER.filter(
+          (cat) => cat === "All Items" || dynamicCategories.includes(cat),
+        );
+
+        container.innerHTML = categoriesToDisplay
+          .map((cat) => {
+            const isActive = cat === currentSelectedCategory;
+            const icon = CATEGORY_ICONS[cat] || "fa-tag";
+            return `
+                    <button onclick="selectCategory('${cat}')" class="whitespace-nowrap flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
+                      isActive
+                        ? "bg-brand-darkgreen text-white shadow-sm"
+                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    }">
+                        <i class="fa-solid ${icon} text-[11px]"></i>
+                        <span>${cat}</span>
+                    </button>
+                `;
+          })
+          .join("");
+      }
+
+      function selectCategory(cat) {
+        currentSelectedCategory = cat;
+        renderCategories();
+        renderMenuGrid();
+      }
+
+      function renderMenuGrid() {
+        const grid = document.getElementById("menuGrid");
+        const emptyState = document.getElementById("emptyState");
+        const searchTerm = document
+          .getElementById("searchInput")
+          .value.toLowerCase()
+          .trim();
+
+        const filtered = rawMenuItems.filter((item) => {
+          const matchesCat =
+            currentSelectedCategory === "All Items" ||
+            item.category === currentSelectedCategory;
+          const matchesSearch =
+            item.name.toLowerCase().includes(searchTerm) ||
+            item.description.toLowerCase().includes(searchTerm);
+          return matchesCat && matchesSearch;
+        });
+
+        if (filtered.length === 0) {
+          grid.innerHTML = "";
+          emptyState.classList.remove("hidden");
+          emptyState.classList.add("flex");
+          return;
+        }
+
+        emptyState.classList.add("hidden");
+        emptyState.classList.remove("flex");
+
+        grid.innerHTML = filtered
+          .map((item) => {
+            const portionIdx = selectedCardPortions[item.id] || 0;
+            const portion = item.portionOptions[portionIdx];
+            const hasMultiplePortions = item.portionOptions.length > 1;
+
+            return `
+                    <div class="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-start justify-between gap-2 mb-1">
+                                <h3 class="font-extrabold text-gray-800 text-sm sm:text-base leading-tight">${item.name}</h3>
+                                <span class="bg-brand-lightgreen text-brand-darkgreen text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider flex-shrink-0">
+                                    ${item.category}
+                                </span>
+                            </div>
+                            <p class="text-xs text-gray-500 leading-relaxed">${item.description}</p>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between gap-3">
+                            <div>
+                                ${
+                                  hasMultiplePortions
+                                    ? `
+                                    <div class="flex gap-1 mb-1" id="portions-item-${item.id}">
+                                        ${item.portionOptions
+                                          .map(
+                                            (opt, idx) => `
+                                            <button onclick="changeCardPortion(${item.id}, ${idx})" class="portion-btn-${item.id} text-[10px] font-semibold px-2 py-0.5 rounded border ${idx === portionIdx ? "bg-brand-lightgreen border-brand-green text-brand-darkgreen" : "border-gray-200 text-gray-600"}">
+                                                ${opt.label}
+                                            </button>
+                                        `,
+                                          )
+                                          .join("")}
+                                    </div>
+                                `
+                                    : ""
+                                }
+                                <span class="text-[10px] text-gray-400 font-medium block">Price</span>
+                                <span id="price-display-${item.id}" class="text-base font-black text-brand-darkgreen">${formatNaira(portion.price)}</span>
+                            </div>
+
+                            <button onclick="addToCart(${item.id})" class="bg-brand-red hover:bg-red-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-xs flex items-center gap-1.5 flex-shrink-0">
+                                <i class="fa-solid fa-plus text-[10px]"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+          })
+          .join("");
+      }
+
+      function changeCardPortion(itemId, idx) {
+        selectedCardPortions[itemId] = idx;
+        const item = rawMenuItems.find((i) => i.id === itemId);
+        if (!item) return;
+
+        const priceElem = document.getElementById(`price-display-${itemId}`);
+        if (priceElem)
+          priceElem.innerText = formatNaira(item.portionOptions[idx].price);
+
+        const btns = document.querySelectorAll(`.portion-btn-${itemId}`);
+        btns.forEach((btn, bIdx) => {
+          if (bIdx === idx) {
+            btn.className = `portion-btn-${itemId} text-[10px] font-semibold px-2 py-0.5 rounded border bg-brand-lightgreen border-brand-green text-brand-darkgreen`;
+          } else {
+            btn.className = `portion-btn-${itemId} text-[10px] font-semibold px-2 py-0.5 rounded border border-gray-200 text-gray-600`;
+          }
+        });
+      }
+
+      function addToCart(itemId) {
+        const item = rawMenuItems.find((i) => i.id === itemId);
+        if (!item) return;
+
+        const portionIdx = selectedCardPortions[itemId] || 0;
+        const existingIdx = cart.findIndex(
+          (c) => c.item.id === itemId && c.selectedPortionIndex === portionIdx,
+        );
+
+        if (existingIdx > -1) {
+          cart[existingIdx].qty += 1;
+        } else {
+          cart.push({ item, selectedPortionIndex: portionIdx, qty: 1 });
+        }
+
+        updateCartUI();
+      }
+
+      function updateCartQty(index, delta) {
+        cart[index].qty += delta;
+        if (cart[index].qty <= 0) {
+          cart.splice(index, 1);
+        }
+        updateCartUI();
+        renderCartModalItems();
+      }
+
+      function updateCartUI() {
+        const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+        const subtotal = cart.reduce(
+          (sum, i) =>
+            sum + i.item.portionOptions[i.selectedPortionIndex].price * i.qty,
+          0,
+        );
+
+        document.getElementById("cartBadge").innerText = totalItems;
+        document.getElementById("cartSubtotal").innerText =
+          formatNaira(subtotal);
+        document.getElementById("modalSubtotal").innerText =
+          formatNaira(subtotal);
+
+        const floatingBar = document.getElementById("floatingCartBar");
+        if (totalItems > 0) {
+          floatingBar.classList.remove("translate-y-full");
+        } else {
+          floatingBar.classList.add("translate-y-full");
+          closeCartModal();
+        }
+      }
+
+      function openCartModal() {
+        if (cart.length === 0) return;
+        renderCartModalItems();
+        document.getElementById("cartModal").classList.remove("hidden");
+      }
+
+      function closeCartModal() {
+        document.getElementById("cartModal").classList.add("hidden");
+      }
+
+      function renderCartModalItems() {
+        const listContainer = document.getElementById("cartItemsList");
+        if (cart.length === 0) {
+          listContainer.innerHTML = `<p class="text-xs text-gray-400 text-center py-4">Your cart is empty.</p>`;
+          return;
+        }
+
+        listContainer.innerHTML = cart
+          .map((c, idx) => {
+            const portion = c.item.portionOptions[c.selectedPortionIndex];
+            const itemTotal = portion.price * c.qty;
+
+            return `
+                    <div class="flex items-center justify-between gap-3 bg-gray-50 p-2.5 rounded-xl border border-gray-100">
+                        <div class="min-w-0 flex-1">
+                            <h5 class="text-xs font-bold text-gray-800 truncate">${c.item.name}</h5>
+                            <p class="text-[10px] text-gray-500 font-medium">${portion.label} - ${formatNaira(portion.price)}</p>
+                            <p class="text-xs font-extrabold text-brand-darkgreen mt-0.5">${formatNaira(itemTotal)}</p>
+                        </div>
+
+                        <div class="flex items-center gap-2 bg-white px-2 py-1 rounded-lg border border-gray-200">
+                            <button onclick="updateCartQty(${idx}, -1)" class="text-gray-500 hover:text-brand-red text-xs px-1">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                            <span class="text-xs font-bold text-gray-800 w-4 text-center">${c.qty}</span>
+                            <button onclick="updateCartQty(${idx}, 1)" class="text-gray-500 hover:text-brand-green text-xs px-1">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+          })
+          .join("");
+      }
+
+      function toggleAddressField() {
+        const fulfillment = document.querySelector(
+          'input[name="fulfillment"]:checked',
+        ).value;
+        const addrContainer = document.getElementById("addressContainer");
+        const addrInput = document.getElementById("custAddress");
+
+        if (fulfillment === "Delivery") {
+          addrContainer.classList.remove("hidden");
+          addrInput.setAttribute("required", "true");
+        } else {
+          addrContainer.classList.add("hidden");
+          addrInput.removeAttribute("required");
+        }
+      }
+
+      function submitOrderToWhatsApp() {
+        const form = document.getElementById("checkoutForm");
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const name = document.getElementById("custName").value.trim();
+        const phone = document.getElementById("custPhone").value.trim();
+        const fulfillment = document.querySelector(
+          'input[name="fulfillment"]:checked',
+        ).value;
+        const address = document.getElementById("custAddress").value.trim();
+        const notes = document.getElementById("custNotes").value.trim();
+        const subtotal = cart.reduce(
+          (sum, i) =>
+            sum + i.item.portionOptions[i.selectedPortionIndex].price * i.qty,
+          0,
+        );
+
+        let receipt = `*NEW ORDER - POTHILLS FOODS ENTERPRISES*\n`;
+        receipt += `----------------------------------------\n`;
+        receipt += `*Customer Details:*\n`;
+        receipt += `👤 Name: ${name}\n`;
+        receipt += `📞 Phone: ${phone}\n`;
+        receipt += `📦 Method: ${fulfillment}\n`;
+        if (fulfillment === "Delivery") {
+          receipt += `📍 Address: ${address}\n`;
+        }
+        if (notes) {
+          receipt += `📝 Notes: ${notes}\n`;
+        }
+        receipt += `----------------------------------------\n`;
+        receipt += `*Order Items:*\n`;
+
+        cart.forEach((c, idx) => {
+          const portion = c.item.portionOptions[c.selectedPortionIndex];
+          const lineTotal = portion.price * c.qty;
+          receipt += `${idx + 1}. ${c.item.name} (${portion.label})\n   ${c.qty}x @ ${portion.price === 0 ? "Price TBD" : "₦" + portion.price.toLocaleString()} = ${portion.price === 0 ? "Price TBD" : "₦" + lineTotal.toLocaleString()}\n`;
+        });
+
+        receipt += `----------------------------------------\n`;
+        receipt += `*TOTAL AMOUNT: ${subtotal === 0 ? "Price TBD" : "₦" + subtotal.toLocaleString()}*\n`;
+        receipt += `----------------------------------------\n`;
+        receipt += `Thank you for ordering from Pothills Foods!`;
+
+        const encodedURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(receipt)}`;
+        window.open(encodedURL, "_blank");
+      }
+
+      document.getElementById("searchInput").addEventListener("input", (e) => {
+        const clearBtn = document.getElementById("clearSearch");
+        if (e.target.value.length > 0) clearBtn.classList.remove("hidden");
+        else clearBtn.classList.add("hidden");
+        renderMenuGrid();
+      });
+
+      document.getElementById("clearSearch").addEventListener("click", () => {
+        const input = document.getElementById("searchInput");
+        input.value = "";
+        document.getElementById("clearSearch").classList.add("hidden");
+        renderMenuGrid();
+      });
+
+      window.addEventListener("DOMContentLoaded", fetchMenuItems);
+    </script>
+  </body>
+</html>
